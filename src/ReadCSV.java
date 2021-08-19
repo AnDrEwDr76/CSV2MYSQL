@@ -183,13 +183,7 @@ public class ReadCSV {
                  }
                  dateExist = false;
              }
-/*             // PRINT HEADER *****************************************
-             System.out.print("header: ");
-             for (String a: header) {
-                 System.out.print(a + " ");
-             }
-             System.out.println("");
-             // *******************************************************/
+              
              // fill HEADER from allRows (no 2 start variables here!!!)
              if (isHeaderExists) {
                  for (int i = 0; i < wordsInRow; i++) {
@@ -230,14 +224,6 @@ public class ReadCSV {
              }
          } // Конец области видимости для шаблона типов данных
 
-         {
-             // Область видимости для формирования строки запроса
-             // на создание таблицы данных и
-             // добавления данных в таблицу информации
-
-         }// Конец области видимости формирования строк запросов
-
-
 
 
          RecivedFile recivedFile = new RecivedFile(header, dataTypes, allRows);
@@ -256,61 +242,6 @@ public class ReadCSV {
 
          System.out.println(i + " <----- iiiiiiiiiiiiiiiii ");
 
-
-
-
-
-
-
-         // всё выводим на экран
-         // Print HEADER:
-//         System.out.println("Header:");
-//         for (String w: header) {
-//             System.out.print(w + " ");
-//         }
-//         System.out.println("\t\t\t" + header.length);
-//
-//         // Print types of data:
-//         System.out.println("Datatypes:");
-//         for (String r : dataTypes) {
-//             System.out.print(r + " ");
-//         }
-//         System.out.println("\t\t\t" + dataTypes.length);
-//
-//         // Print BODY:
-//         System.out.println("Body:");
-//         for (String[] rows : allRows) {
-//             for (String a : rows) {
-//                 System.out.print(a + " ");
-//             }
-//             System.out.println("\t\t\t" + rows.length);
-//         }
-
-
-         // ПРОБА С ДАТАМИ ***********************************
-/*         System.out.println("");
-         Calendar calendar = new GregorianCalendar(2017, 0 , 25);
-         calendar.set(Calendar.MINUTE, 66);
-         Date date = calendar.getTime();
-         System.out.println(date);
-
-         int zu = 0;
-         for (String[] rows : allRows) {
-             zu = 0;
-             for (String a : rows) {
-                 if (dataTypes[zu].equals("Time")){
-                     System.out.println();
-                 }
-                 System.out.print(a + " ");
-                 zu++;
-             }
-
-             System.out.println("\t\t\t" + rows.length);
-
-         }*/
-
-
-         // ПРОБА С ДАТАМИ КОНЕЦ ***********************************
 
 
      }
