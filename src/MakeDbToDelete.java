@@ -10,8 +10,8 @@ public class MakeDbToDelete {
 /*
             String requestToDb1 = "CREATE DATABASE accra;";
 */
-            String requestToDb1 = "UPDATE recivedfiles SET autoprocessed = 1 WHERE tablename = 'working210818213801';";
-/*            String requestToDb2 =
+//            String requestToDb1 = "UPDATE recivedfiles SET autoprocessed = 1 WHERE tablename = 'working210818213801';";
+            String requestToDb2 =
                     "CREATE TABLE accra.customer" +
                     "(" +
                     "customer VARCHAR(20) PRIMARY KEY," +
@@ -53,15 +53,15 @@ public class MakeDbToDelete {
                     "tablename VARCHAR(25) NOT NULL," +
                     "FOREIGN KEY (plantname) REFERENCES plant (plantname)" +
                     "ON DELETE CASCADE" +
-                    ");";*/
+                    ");";
             Statement st = null;
             st = conn.createStatement();
             ResultSet rs = null;
-            st.executeUpdate(requestToDb1);
-/*            st.executeUpdate(requestToDb2);
+//            st.executeUpdate(requestToDb1);
+            st.executeUpdate(requestToDb2);
             st.executeUpdate(requestToDb3);
             st.executeUpdate(requestToDb4);
-            st.executeUpdate(requestToDb5);*/
+            st.executeUpdate(requestToDb5);
         } catch (Exception e) {
             e.printStackTrace();
         }

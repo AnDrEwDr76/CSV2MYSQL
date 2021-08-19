@@ -14,6 +14,7 @@ public class RecivedFile {
         this.header = header;
         this.dataTypes = dataTypes;
         this.allRows = allRows;
+        System.out.println("Making the object");
     }
 
     @Override
@@ -151,15 +152,16 @@ public class RecivedFile {
          * записать autoprocessed = false;
          *
          */
+        System.out.println("Writing to DB. Wait some seconds, please.");
         try{
             // writing to recivedfiles
             String requestToRecivedfiles = "INSERT INTO recivedfiles VALUES " +
                     "(null, ?, ?, ?, ?, 0, 0, null, ?);";
-            System.out.println("plantname = " + plantname);
-            System.out.println("filename = " + filename);
-            System.out.println("encoding = " + encoding);
-            System.out.println("recivedate = " + recivedate);
-            System.out.println("tablename = " + tablename);
+//            System.out.println("plantname = " + plantname);
+//            System.out.println("filename = " + filename);
+//            System.out.println("encoding = " + encoding);
+//            System.out.println("recivedate = " + recivedate);
+//            System.out.println("tablename = " + tablename);
 //            Boolean one, two;
             Connection conn = ConnectionMySQL.getConn();
             PreparedStatement st = conn.prepareStatement(requestToRecivedfiles);
@@ -178,9 +180,9 @@ public class RecivedFile {
                 if (dataTypes.length-i>1){requestToMakeTable += ", ";}
             }
             requestToMakeTable += ");";
-            System.out.println(requestToMakeTable);
+//            System.out.println(requestToMakeTable);
             st = conn.prepareStatement(requestToMakeTable);
-            System.out.println(st.toString());
+//            System.out.println(st.toString());
 
             st.executeUpdate();
 
@@ -206,9 +208,9 @@ public class RecivedFile {
             // write flag AUTOPROCESSED to accra.recievedfiles
             String requestAutoprocessed = "UPDATE recivedfiles SET autoprocessed = 1 " +
                     "WHERE tablename = '" + tablename + "';";
-            System.out.println(requestAutoprocessed);
             st = conn.prepareStatement(requestAutoprocessed);
             st.executeUpdate();
+            System.out.println(filename + ".csv --> " + tablename + " fully saved in the database");
 
 
             st.close();

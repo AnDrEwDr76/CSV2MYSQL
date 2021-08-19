@@ -105,37 +105,6 @@ public class DataTypeDefinition {
         }
     }
 
-/*    public static String dateToFormat (String dateToF) {
-        Matcher MMDDYYYY1 = ptrnD1MMDDYYYY.matcher(dateToF); // -
-        Matcher MMDDYYYY2 = ptrnD2MMDDYYYY.matcher(dateToF); // space
-        Matcher MMDDYYYY3 = ptrnD3MMDDYYYY.matcher(dateToF); // /
-        Matcher MMDDYYYY4 = ptrnD4MMDDYYYY.matcher(dateToF); // .
-        SimpleDateFormat toModification;
-        String modificated = "0";
-
-        if (MMDDYYYY1.matches()){
-            toModification = new SimpleDateFormat("dd-MM-yyyy");
-            System.out.println("dd-MM-yyyy");
-        } else if (MMDDYYYY2.matches()){
-            toModification = new SimpleDateFormat("dd MM yyyy");
-        } else if (MMDDYYYY3.matches()){
-            toModification = new SimpleDateFormat("dd/MM/yyyy");
-            System.out.println("dd/MM/yyyy");
-        } else if (MMDDYYYY4.matches()){
-            toModification = new SimpleDateFormat("dd.MM.yyyy");
-        } else {
-            return dateToF;
-        }
-        SimpleDateFormat newFormat = new SimpleDateFormat("yyyy-MM-dd");
-        try {
-            modificated = newFormat.format(toModification.parse(dateToF));
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-
-        return modificated;
-    }*/
-
     public static String dateToMySQLFormat(String dateToF) {
         Matcher MMDDYYYY1 = ptrnD1MMDDYYYY.matcher(dateToF); // -
         Matcher MMDDYYYY2 = ptrnD2MMDDYYYY.matcher(dateToF); // space

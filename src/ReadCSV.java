@@ -14,8 +14,8 @@ public class ReadCSV {
          String regexSymbol = "\t"; // символ-разделитель
          String filePath = "/home/andrewdr/IdeaProjects/CSV2MYSQL/";
 
-         String fileName = "Sernur_Step.csv"; // bomer.txt//probe_UTF8_3.txt // Alarm-20150610.csv
-         // Sernur_Step.csv// probe_UTF16_3.txt // Working-20170315.csv // Sernur_T.csv
+         String fileName = "Working-20170315.csv"; // bomer.txt//probe_UTF8_3.txt // Alarm-20150610.csv
+         // probe_UTF16_3.txt // Working-20170315.csv // Sernur_T.csv
          // Alarm-20150216.csv // Sernur_PF.csv // Other-20150418.csv // toReader_1.txt
          // filecsv.csv // date.csv
          String filedir = filePath + fileName;
@@ -41,6 +41,7 @@ public class ReadCSV {
                  words = line.split("\t");
                  allRows.add(words);
              }
+             System.out.println("File is read");
          } catch (FileNotFoundException ex) {
              ex.printStackTrace();
          } catch (IOException ex) {
@@ -183,13 +184,7 @@ public class ReadCSV {
                  }
                  dateExist = false;
              }
-/*             // PRINT HEADER *****************************************
-             System.out.print("header: ");
-             for (String a: header) {
-                 System.out.print(a + " ");
-             }
-             System.out.println("");
-             // *******************************************************/
+
              // fill HEADER from allRows (no 2 start variables here!!!)
              if (isHeaderExists) {
                  for (int i = 0; i < wordsInRow; i++) {
@@ -228,16 +223,8 @@ public class ReadCSV {
                      q++;
                  }
              }
+             System.out.println("Header and datatypes are prepared");
          } // Конец области видимости для шаблона типов данных
-
-         {
-             // Область видимости для формирования строки запроса
-             // на создание таблицы данных и
-             // добавления данных в таблицу информации
-
-         }// Конец области видимости формирования строк запросов
-
-
 
 
          RecivedFile recivedFile = new RecivedFile(header, dataTypes, allRows);
@@ -250,68 +237,8 @@ public class ReadCSV {
                  + StrainToName.nameToName(ts.toString()));
 
          recivedFile.changeDatesForMySQL();
-//         System.out.println(recivedFile);
+
          int i = recivedFile.writeToDb();
-//         System.out.println(recivedFile.getFilename() + " <-------------------------");
-
-         System.out.println(i + " <----- iiiiiiiiiiiiiiiii ");
-
-
-
-
-
-
-
-         // всё выводим на экран
-         // Print HEADER:
-//         System.out.println("Header:");
-//         for (String w: header) {
-//             System.out.print(w + " ");
-//         }
-//         System.out.println("\t\t\t" + header.length);
-//
-//         // Print types of data:
-//         System.out.println("Datatypes:");
-//         for (String r : dataTypes) {
-//             System.out.print(r + " ");
-//         }
-//         System.out.println("\t\t\t" + dataTypes.length);
-//
-//         // Print BODY:
-//         System.out.println("Body:");
-//         for (String[] rows : allRows) {
-//             for (String a : rows) {
-//                 System.out.print(a + " ");
-//             }
-//             System.out.println("\t\t\t" + rows.length);
-//         }
-
-
-         // ПРОБА С ДАТАМИ ***********************************
-/*         System.out.println("");
-         Calendar calendar = new GregorianCalendar(2017, 0 , 25);
-         calendar.set(Calendar.MINUTE, 66);
-         Date date = calendar.getTime();
-         System.out.println(date);
-
-         int zu = 0;
-         for (String[] rows : allRows) {
-             zu = 0;
-             for (String a : rows) {
-                 if (dataTypes[zu].equals("Time")){
-                     System.out.println();
-                 }
-                 System.out.print(a + " ");
-                 zu++;
-             }
-
-             System.out.println("\t\t\t" + rows.length);
-
-         }*/
-
-
-         // ПРОБА С ДАТАМИ КОНЕЦ ***********************************
-
 
      }
 
