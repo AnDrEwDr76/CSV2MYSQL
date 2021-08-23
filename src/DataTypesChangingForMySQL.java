@@ -1,6 +1,6 @@
 public class DataTypesChangingForMySQL {
     public static String usualToSQL(String dType) {
-        String str = "VARCHAR(15)";
+        String str;
         switch (dType) {
             case "Integer":
                 str =  "INT";

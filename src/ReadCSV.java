@@ -14,7 +14,7 @@ public class ReadCSV {
          String regexSymbol = "\t"; // символ-разделитель
          String filePath = "/home/andrewdr/IdeaProjects/CSV2MYSQL/";
 
-         String fileName = "Working-20170315.csv"; // bomer.txt//probe_UTF8_3.txt // Alarm-20150610.csv
+         String fileName = "probe_UTF16_3.txt"; // bomer.txt//probe_UTF8_3.txt // Alarm-20150610.csv
          // probe_UTF16_3.txt // Working-20170315.csv // Sernur_T.csv
          // Alarm-20150216.csv // Sernur_PF.csv // Other-20150418.csv // toReader_1.txt
          // filecsv.csv // date.csv
